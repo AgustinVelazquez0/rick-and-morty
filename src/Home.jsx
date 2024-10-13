@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import CardInfo from "./CardInfo";
+import "./styles.scss";
+
 function Home() {
   const initialState = [];
   const [characters, setCharacters] = useState(initialState);
@@ -23,8 +25,9 @@ function Home() {
   console.log(characters);
 
   return (
-    <div>
+    <div className="container">
       <h1>Rick and Morty API</h1>
+      <button className="">Siguiente</button>
       <ul>
         {characters.map((character) => (
           <li key={character.id}>
