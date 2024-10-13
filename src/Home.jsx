@@ -1,16 +1,33 @@
 import { useState, useEffect } from "react";
 import CardInfo from "./CardInfo";
 import "./styles.scss";
+import styles from "./styles.module.scss";
 
 function Home() {
   const initialState = [];
+  const initialPageState = 1;
   const [characters, setCharacters] = useState(initialState);
+  const [page, setPage] = useState(initialPageState);
+
+  function handleNextButtonClick() {
+    setPage(page + 1);
+    if (page === 42) {
+      setPage(initialPageState);
+    }
+  }
+
+  function handleBackButtonClick() {
+    setPage(page - 1);
+    if (page === 1) {
+      setPage(initialPageState);
+    }
+  }
 
   useEffect(() => {
     async function fetchCharacters() {
       try {
         const response = await fetch(
-          "https://rickandmortyapi.com/api/character"
+          `https://rickandmortyapi.com/api/character?page=${page}`
         );
         const data = await response.json();
         setCharacters(data.results);
@@ -20,21 +37,22 @@ function Home() {
     }
 
     fetchCharacters();
-  }, []); // El efecto se ejecuta solo una vez al montar el componente
-
-  console.log(characters);
+  }, [page]); // El efecto se ejecuta solo una vez al montar el componente
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       <h1>Rick and Morty API</h1>
-      <button className="">Siguiente</button>
-      <ul>
+      <button className={styles.button} onClick={handleNextButtonClick}>
+        Siguiente
+      </button>
+      <button className={styles.button} onClick={handleBackButtonClick}>
+        Anterior
+      </button>
+      <ul className={styles.list}>
         {characters.map((character) => (
-          <li key={character.id}>
-            <div>
-              <img src={character.image} alt={character.name} />
-              <CardInfo character={character} />
-            </div>
+          <li className={styles.character} key={character.id}>
+            <img src={character.image} alt={character.name} />
+            <CardInfo character={character} />
           </li>
         ))}
       </ul>

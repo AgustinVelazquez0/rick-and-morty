@@ -1,8 +1,30 @@
-.container {
-  display: flex;
-  background-color: red;
+@import url("https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&display=swap");
 
-  h1 {
-    color: white;
-  }
+$primary-color: white;
+$primary-font: "Roboto", sans-serif;
+$title-font: "qwitcher-grypen-bold", sans-serif;
+
+.container {
+  font-family: $primary-font;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(11, 0, 75);
+}
+
+.qwitcher-grypen-regular {
+  font-family: "Qwitcher Grypen", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.qwitcher-grypen-bold {
+  font-size: 10vh;
+  font-family: "Qwitcher Grypen", cursive;
+  font-weight: 700;
+  font-style: normal;
+  color: rgb(255, 166, 2);
+}
+
+.list {
+  display: flex;
 }
