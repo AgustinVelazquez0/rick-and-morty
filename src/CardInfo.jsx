@@ -5,7 +5,7 @@ function CardInfo(information) {
   return (
     <div className={styles.cardInfo}>
       <h2 className={styles.characterName}>{character.name}</h2>
-      <p className={styles.characterSpecies}>Species: {character.species}</p>
+      <p className={styles.characterSpecies}>Species - {character.species}</p>
     </div>
   );
 }
