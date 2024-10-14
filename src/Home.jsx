@@ -40,22 +40,26 @@ function Home() {
   }, [page]); // El efecto se ejecuta solo una vez al montar el componente
 
   return (
-    <div className={styles.container}>
-      <h1>Rick and Morty API</h1>
-      <button className={styles.button} onClick={handleNextButtonClick}>
-        Siguiente
-      </button>
-      <button className={styles.button} onClick={handleBackButtonClick}>
-        Anterior
-      </button>
-      <ul className={styles.list}>
-        {characters.map((character) => (
-          <li className={styles.character} key={character.id}>
-            <img src={character.image} alt={character.name} />
-            <CardInfo character={character} />
-          </li>
-        ))}
-      </ul>
+    <div className={styles.general}>
+      <div className={styles.container}>
+        <h1 className={styles.title}>Rick and Morty API</h1>
+        <div className={styles.buttons}>
+          <button className={styles.button} onClick={handleBackButtonClick}>
+            Anterior
+          </button>
+          <button className={styles.button} onClick={handleNextButtonClick}>
+            Siguiente
+          </button>
+        </div>
+        <ul className={styles.list}>
+          {characters.map((character) => (
+            <li className={styles.character} key={character.id}>
+              <img src={character.image} alt={character.name} />
+              <CardInfo character={character} />
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
