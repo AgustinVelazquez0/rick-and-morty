@@ -1,11 +1,11 @@
+import styles from "./styles.module.scss";
+
 function CardInfo(information) {
   const character = information.character;
   return (
-    <div>
-      <h3>{character.name}</h3>
-      <span>
-        {character.status} - {character.species}
-      </span>
+    <div className={styles.cardInfo}>
+      <h2 className={styles.characterName}>{character.name}</h2>
+      <p className={styles.characterSpecies}>Species: {character.species}</p>
     </div>
   );
 }
