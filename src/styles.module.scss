@@ -10,6 +10,10 @@ $text-color: #333;
 $button-hover-color: #3b7bbfba;
 $shadow-color: rgb(0, 0, 0);
 
+body {
+  margin: 0;
+}
+
 .general {
   background-image: url("https://wallpapers.com/images/featured/rick-and-morty-cool-t3ynu5ly9m7jq6e2.jpg");
   background-size: cover; // Cubrir el contenedor
